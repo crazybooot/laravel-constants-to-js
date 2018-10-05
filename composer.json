@@ -1,0 +1,28 @@
+{
+  "name": "crazybooot/laravel-constants-to-js",
+  "description": "Map php class constants to js",
+  "type": "library",
+  "authors": [
+    {
+      "name": "crazybooot",
+      "email": "crazybooot@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^7.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Crazybooot\\ConstantsToJs\\": "/src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Crazybooot\\ConstantsToJs\\Providers\\ServiceProvider"
+      ]
+    }
+  }
+}

@@ -1,4 +1,4 @@
-# Exports Laravel config and calss constants to JavaScript
+# Exports Laravel config and class constants to JavaScript
 
 
 Includes artisan command to generate JavaScript ES6 or UMD module

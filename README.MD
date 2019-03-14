@@ -10,6 +10,11 @@ You can install the package via composer:
 composer require crazybooot/laravel-constants-to-js
 ```
 
+Publish config:
+```bash
+php artisan vendor:publish --provider="Crazybooot\ConstantsToJs\Providers\ServiceProvider" --tag=config
+```
+
 ## Usage
 Add JavaScript resulted object hierarchy to `config\constants-to-js.php` config
 file to `constants` section as an assoc array.
@@ -104,3 +109,7 @@ After cofiguration run next command to generate resulted JavaScript file:
 ``` bash
 php artisan constants:js
 ```
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.MD) for more information.

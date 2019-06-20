@@ -10,7 +10,7 @@ return [
     /**
      * Path to generated JavaScript file
      */
-    'target_path'   => assets_path('js/constants.js'),
+    'target_path'   => resource_path('js/constants.js'),
 //    'target_path'   => public_path('js/constants.js'),
 
     /**

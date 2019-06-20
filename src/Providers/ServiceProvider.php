@@ -19,30 +19,30 @@ class ServiceProvider extends BaseServiceProvider
     /**
      * @return void
      */
+    public function register(): void
+    {
+        $this->app->bind(GeneratorContract::class, static function ($app): GeneratorContract {
+            $generator = config('constants-to-js.generator');
+
+            return new $generator();
+        });
+
+        $this->mergeConfigFrom(
+            __DIR__.'/../../config/constants-to-js.php', 'constants-to-js'
+        );
+    }
+
+    /**
+     * @return void
+     */
     public function boot(): void
     {
         if ($this->app->runningInConsole()) {
             $this->commands(GenerateJsFileCommand::class);
         }
 
-        $this->app->bind(GeneratorContract::class, function ($app) {
-            $generator = config('constants-to-js.generator');
-            
-            return new $generator();
-        });
-
         $this->publishes([
             __DIR__.'/../../config/constants-to-js.php' => config_path('constants-to-js.php'),
         ], 'config');
-    }
-
-    /**
-     * @return void
-     */
-    public function register(): void
-    {
-        $this->mergeConfigFrom(
-            __DIR__.'/../../config/constants-to-js.php', 'constants-to-js'
-        );
     }
 }

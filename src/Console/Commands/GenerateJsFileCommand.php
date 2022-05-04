@@ -112,8 +112,12 @@ class GenerateJsFileCommand extends Command
     protected function prepareConstants(array $class): array
     {
             $result = [];
+        
+            $constants = !empty($class['starts_with'])
+                ? get_class_constants_start_with($class['class'], $class['starts_with'])
+                : get_class_constants($class['class']);
 
-            foreach (get_class_constants_start_with($class['class'], $class['starts_with'] ?? '') as $key => $value) {
+            foreach ($constants as $key => $value) {
 
                 [$key, $value] = $this->transform($class, $key, $value);
                 $result[$key] = $value;
